@@ -1,11 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { gameEffectsMiddleware } from './effects/game-effect-middleware';
+import { createGraphQLMiddleware } from './effects/graphql-api-middleware';
+import { gameReducer } from './reducers/game-reducer';
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-  
+  reducer: gameReducer,
+  middleware: [
+    // createGraphQLMiddleware("https://rickandmortyapi.com/graphql"),
+    createGraphQLMiddleware("/graphql"),
+    gameEffectsMiddleware
+  ]
 });
 
 export type AppDispatch = typeof store.dispatch;

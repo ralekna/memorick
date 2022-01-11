@@ -1,10 +1,32 @@
+@font-face {
+  font-family: 'Get Schwifty';
+  src: url('./../fonts/GetSchwifty-Regular.woff2') format('woff2'),
+      url('./../fonts/GetSchwifty-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  // font-display: swap;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Get Schwifty', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+.start-page {
+  .start-game-button {
+    font-size: 2rem;
+    font-family: 'Get Schwifty', 'GetSchwifty-Regular';
+    background: none;
+    border: none;
+    color: chartreuse;
+    text-shadow: cadetblue;
+  }
+  color: white;
 }
 
 .board {
@@ -14,13 +36,44 @@ body {
   padding: 10px;
   gap: calc(100vh * 0.005);
   flex-wrap: wrap;
+  perspective: 1000px;
 
   .card {
     width: 24%;
     height: 15%;
     // margin: 0.5% 0.5%;
-    border-radius: 5%;
     // border: 1px solid black;
-    background-color: #8ef47f;
+    // background-color: cadetblue;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transition-delay: 1s;
+    &.open {
+      transform: rotateY(180deg);
+      transition-delay: 0s !important;
+      transition: transform 0s !important;
+    }
+
+
+    .face {
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      border-radius: 5%;
+      &.back {
+        background-color: #8ef47f;
+      }
+      &.front {
+        transform: rotateY(180deg);
+        background-color: #d2691e;
+        img {
+          max-width: 100%;
+          border-top-left-radius: 5%;
+          border-top-right-radius: 5%;
+        }
+      }
+    }
   }
 }

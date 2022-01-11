@@ -1,15 +1,27 @@
-// import { Counter } from './features/counter/Counter';
-import { Board } from './features/cards/board';
+import { useEffect } from "react";
+import { startApplication } from "./app/actions/actions";
+import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { getGameState } from "./app/selectors/game-selectors";
+import { Board } from "./features/game/board";
+import { StartPage } from "./features/start-page/start-page";
 
-function App() {
+export function App() {
+  const { game, loading } = useAppSelector(getGameState);
+  const dispatch = useAppDispatch();
+  
+  useEffect(() => {
+    console.log("Dispatching startApplication");
+    dispatch(startApplication());
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <Counter /> */}
-        <Board />
-      </header>
+    <div>
+      {
+        loading 
+          ? <h2>Loading...</h2> 
+          : game 
+            ? <Board /> 
+            : <StartPage />}
     </div>
   );
 }
-
-export default App;

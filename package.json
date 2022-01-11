@@ -4,22 +4,13 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.20.41",
-    "@types/react": "^16.14.21",
-    "@types/react-dom": "^16.9.14",
-    "@types/react-redux": "^7.1.21",
-    "action-matchers": "file:../action-matchers",
+    "action-matchers": "^0.0.2",
+    "classnames": "^2.3.1",
     "graphql": "^16.2.0",
     "graphql-request": "^3.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-scripts": "5.0.0",
-    "typescript": "~4.1.5"
+    "react-redux": "^7.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +34,17 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.47.0"
-  }
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.20.41",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-redux": "^7.1.21",
+    "react-scripts": "5.0.0",
+    "sass": "^1.47.0",
+    "typescript": "^4.5.4"
+  },
+  "proxy": "https://rickandmortyapi.com"
 }

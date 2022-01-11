@@ -47,8 +47,8 @@ export function createEffectsMiddleware<
         const [matchedCount, lastResult] = matchingMiddlewareWithNext.reduce(
           ([matchedCount, lastResult], [matcher, middleware]) => {
             if (matcher(action)) {
-              middleware(action);
-              return [matchedCount + 1, middleware(action)];
+              const result = middleware(action);
+              return [matchedCount + 1, result];
             }
             return [matchedCount, lastResult];
           },
