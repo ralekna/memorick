@@ -98,7 +98,7 @@ export const gameReducer = createReducer<GameState>(
                   {
                     reveals: game.reveals,
                     duration: Date.now() - game.startTime,
-                    endedAt: new Date(),
+                    endedAt: Date.now(),
                   },
                   ...state.results,
                 ],

@@ -54,6 +54,12 @@ main {
     font-size: 2rem;
   }
   color: white;
+
+  .results-display {
+    li {
+      font-size: 0.75rem;
+    }
+  }
 }
 
 .end-game-button {
@@ -82,7 +88,7 @@ main {
     height: calc((100% - 50px) / 6);
     transform-style: preserve-3d;
     transition: transform 1s;
-    transition-delay: 1s;
+    transition-delay: 0.3s;
     &.open {
       transform: rotateY(180deg);
       transition-delay: 0s !important;

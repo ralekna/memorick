@@ -2,13 +2,15 @@ import memoric from "../../assets/images/memorick.png";
 import { initializeNewGame } from "../../app/actions/actions";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
-  getLastResult,
+  getLastResults,
   getTopResults,
 } from "../../app/selectors/game-selectors";
+import { ResultsDisplay } from "./results-display";
 
 export function StartPage() {
-  const lastResult = useAppSelector(getLastResult);
+  const lastResults = useAppSelector(getLastResults);
   const topResults = useAppSelector(getTopResults);
+
   const dispatch = useAppDispatch();
   return (
     <div className="start-page">
@@ -23,16 +25,12 @@ export function StartPage() {
           Start new game
         </button>
       </div>
-      {topResults.length ? (
+      {lastResults.length ? (
         <div>
-          <h2>Last result</h2>
-          <div>{lastResult}</div>
+          <h2>Last results</h2>
+          <ResultsDisplay results={lastResults} />
           <h2>Top results</h2>
-          <ol>
-            {topResults.map((result, index) => (
-              <li key={index}>{result}</li>
-            ))}
-          </ol>
+          <ResultsDisplay results={topResults} />
         </div>
       ) : null}
     </div>

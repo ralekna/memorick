@@ -1,6 +1,9 @@
 import { createAction } from "@reduxjs/toolkit";
-import { gql } from "graphql-request";
-import { Card, GetCharacterCountResponse, GetCharacterResponse } from "../types";
+import {
+  Card,
+  GetCharacterCountResponse,
+  GetCharacterResponse,
+} from "../types";
 
 export const fetchCharactersCount = createAction(
   "fetchCharactersCount",
@@ -21,9 +24,8 @@ export const fetchCharactersCount = createAction(
   })
 );
 
-export const fetchCharactersCountSuccess = createAction<GetCharacterCountResponse>(
-  "fetchCharactersCount_SUCCESS"
-);
+export const fetchCharactersCountSuccess =
+  createAction<GetCharacterCountResponse>("fetchCharactersCount_SUCCESS");
 export const fetchCharactersCountLoading = createAction<undefined>(
   "fetchCharactersCount_LOADING"
 );

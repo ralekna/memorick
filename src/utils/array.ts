@@ -1,5 +1,3 @@
-import { assert } from "console";
-
 // Taken from https://bost.ocks.org/mike/shuffle/ (last one)
 export function shuffle<T = any>(arrayToShuffle: T[]): T[] {
   let array = arrayToShuffle.concat(); // let's not be destructive

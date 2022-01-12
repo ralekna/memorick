@@ -19,7 +19,14 @@ export type Game = {
 export type GameResult = {
   duration: number;
   reveals: number;
-  endedAt: Date;
+  endedAt: number;
+}
+
+export type GameResultDisplay = {
+  duration: string;
+  reveals: number;
+  score: number;
+  endedAt: string;
 }
 
 export type GameState = {

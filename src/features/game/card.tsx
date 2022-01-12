@@ -25,7 +25,7 @@ export function Card({ index, id, image, open }: Props) {
         {/* <span>{id}</span> <-- uncomment for cheat */}
       </div>
       <div className="face front">
-        <img src={image} />
+        <img src={image} alt="" />
       </div>
     </div>
   );

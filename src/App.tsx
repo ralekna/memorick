@@ -11,7 +11,7 @@ export function App() {
   
   useEffect(() => {
     dispatch(startApplication());
-  }, [])
+  }, [dispatch]);
 
   return (
     <main>
