@@ -2,6 +2,7 @@ import { Action, createReducer } from "action-matchers";
 import {
   checkIfCardsMatch,
   fetchCharactersCountSuccess,
+  quitGame,
   revealCard,
   startGame,
 } from "../actions/actions";
@@ -44,7 +45,7 @@ export const gameReducer = createReducer<GameState>(
     ],
     [
       /_(LOADING|COMPLETED)$/,
-      (state, {type}: Action) => {
+      (state, { type }: Action) => {
         return {
           ...state,
           loading: type.endsWith("_LOADING"),
@@ -54,12 +55,8 @@ export const gameReducer = createReducer<GameState>(
     [
       revealCard.type,
       (state, { payload: card }: ReturnType<typeof revealCard>) => {
-        console.log(`Reducer: `, revealCard.type, card);
-        
         const { game } = state;
         if (game && game.activeCards.length <= 1) {
-          console.log(`game.activeCards[0] === card`, game.activeCards[0] === card, game.activeCards[0]);
-          
           if (game.activeCards[0] === card) {
             return state;
           }
@@ -80,8 +77,6 @@ export const gameReducer = createReducer<GameState>(
     [
       checkIfCardsMatch.type,
       (state, action) => {
-        console.log(`Reducer: `, checkIfCardsMatch.type);
-        
         const { game } = state;
         if (game && game.activeCards.length >= 2) {
           const [card1Index, card2Index] = game.activeCards;
@@ -119,6 +114,9 @@ export const gameReducer = createReducer<GameState>(
         }
       },
     ],
+    [quitGame.type, (state, action) => {
+      return {...state, game: null}
+    }],
   ],
   initialState
 );

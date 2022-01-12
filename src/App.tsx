@@ -10,18 +10,17 @@ export function App() {
   const dispatch = useAppDispatch();
   
   useEffect(() => {
-    console.log("Dispatching startApplication");
     dispatch(startApplication());
   }, [])
 
   return (
-    <div>
+    <main>
       {
         loading 
           ? <h2>Loading...</h2> 
           : game 
             ? <Board /> 
             : <StartPage />}
-    </div>
+    </main>
   );
 }

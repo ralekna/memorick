@@ -13,7 +13,6 @@ type Props = {
 export function Card({ index, id, image, open }: Props) {
   const dispatch = useAppDispatch();
   const revealCard: MouseEventHandler<HTMLDivElement> = (event) => {
-    console.log(`In card: revealCard, open: `, open);
     if (!open) {
       dispatch(revealCardAction(index));
     } else {
@@ -22,8 +21,12 @@ export function Card({ index, id, image, open }: Props) {
   };
   return (
     <div className={classNames({ card: true, open })} onMouseDown={revealCard}>
-      <div className="face back">{id}</div>
-      <div className="face front"><img src={image} /></div>
+      <div className="face back">
+        {/* <span>{id}</span> <-- uncomment for cheat */}
+      </div>
+      <div className="face front">
+        <img src={image} />
+      </div>
     </div>
   );
 }

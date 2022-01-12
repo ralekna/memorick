@@ -17,8 +17,6 @@ export const gameEffectsMiddleware = createEffectsMiddleware<GameState>([
     ({ dispatch, getState }) =>
       (next) =>
       (action) => {
-        console.log(`initializeNewGame`);
-
         dispatch(fetchCharacters(getNewDeck(getState())));
       },
   ],
@@ -40,7 +38,7 @@ export const gameEffectsMiddleware = createEffectsMiddleware<GameState>([
       (action: ReturnType<typeof fetchCharactersSuccess>) => {
         next(action);
         console.log(`fetchCharactersSuccess.payload`, action.payload);
-        
+
         dispatch(
           startGame(
             shuffle([

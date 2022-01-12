@@ -59,3 +59,4 @@ export const initializeNewGame = createAction("initializeNewGame");
 export const revealCard = createAction<number>("revealCard");
 export const checkIfCardsMatch = createAction("checkIfCardsMatch");
 export const startApplication = createAction("startApplication");
+export const quitGame = createAction("quitGame");

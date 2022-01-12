@@ -1,49 +1,85 @@
 @font-face {
-  font-family: 'Get Schwifty';
-  src: url('./../fonts/GetSchwifty-Regular.woff2') format('woff2'),
-      url('./../fonts/GetSchwifty-Regular.woff') format('woff');
+  font-family: "Get Schwifty";
+  src: url("./../fonts/GetSchwifty-Regular.woff2") format("woff2"),
+    url("./../fonts/GetSchwifty-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  // font-display: swap;
+  font-display: swap;
 }
 
 body {
   margin: 0;
-  font-family: 'Get Schwifty', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Get Schwifty", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
 }
+main {
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+%game-button {
+  padding: 1em;
+  font-size: 2rem;
+  font-family: "Get Schwifty", "GetSchwifty-Regular";
+  background: none;
+  border: none;
+  border-radius: 2rem;
+  color: chartreuse;
+  text-shadow: 0 0 1rem rgba(22, 202, 247, 0.973);
+  &:hover {
+    outline: 0.1rem solid chartreuse;
+  }
+}
 
 .start-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .logo img {
+    display: block;
+    margin: auto;
+    max-width: 80%;
+  }
   .start-game-button {
+    @extend %game-button;
+    padding: 1em;
     font-size: 2rem;
-    font-family: 'Get Schwifty', 'GetSchwifty-Regular';
-    background: none;
-    border: none;
-    color: chartreuse;
-    text-shadow: cadetblue;
   }
   color: white;
 }
 
+.end-game-button {
+  @extend %game-button;
+  padding: 0.4em;
+  display: block;
+  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 .board {
+  margin: 1rem;
   display: flex;
-  height: 100vh;
-  width: calc(100vh * 0.5625);
-  padding: 10px;
-  gap: calc(100vh * 0.005);
+  width: 100%;
+  max-width: calc(100vh * 0.7);
   flex-wrap: wrap;
   perspective: 1000px;
-
+  gap: 10px;
   .card {
-    width: 24%;
-    height: 15%;
-    // margin: 0.5% 0.5%;
-    // border: 1px solid black;
-    // background-color: cadetblue;
+    width: calc((100% - 30px) / 4);
+    height: calc((100% - 50px) / 6);
     transform-style: preserve-3d;
     transition: transform 1s;
     transition-delay: 1s;
@@ -53,12 +89,12 @@ body {
       transition: transform 0s !important;
     }
 
-
     .face {
       position: absolute;
       backface-visibility: hidden;
       display: flex;
       align-items: center;
+      justify-content: center;
       height: 100%;
       width: 100%;
       border-radius: 5%;
@@ -70,6 +106,7 @@ body {
         background-color: #d2691e;
         img {
           max-width: 100%;
+          max-height: 100%;
           border-top-left-radius: 5%;
           border-top-right-radius: 5%;
         }

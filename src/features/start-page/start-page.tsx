@@ -1,3 +1,4 @@
+import memoric from "../../assets/images/memorick.png";
 import { initializeNewGame } from "../../app/actions/actions";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
@@ -11,6 +12,9 @@ export function StartPage() {
   const dispatch = useAppDispatch();
   return (
     <div className="start-page">
+      <div className="logo">
+        <img alt="Memorick logo" src={memoric} />
+      </div>
       <div>
         <button
           className="start-game-button"
@@ -30,7 +34,7 @@ export function StartPage() {
             ))}
           </ol>
         </div>
-      ) : null }
+      ) : null}
     </div>
   );
 }
