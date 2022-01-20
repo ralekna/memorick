@@ -9,8 +9,7 @@
 /coverage
 
 # production
-# disabled for gh-pages
-# /build
+/build
 
 # misc
 .DS_Store
