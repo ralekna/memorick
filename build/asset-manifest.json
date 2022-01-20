@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e19d2da1.css",
+    "main.js": "/static/js/main.3812d6dd.js",
+    "static/media/memorick.png": "/static/media/memorick.5aefb079209236c09641.png",
+    "static/media/GetSchwifty-Regular.woff": "/static/media/GetSchwifty-Regular.23f002b5671ea2039aed.woff",
+    "static/media/GetSchwifty-Regular.woff2": "/static/media/GetSchwifty-Regular.6c87dbbd418f0f2caa84.woff2",
+    "index.html": "/index.html",
+    "main.e19d2da1.css.map": "/static/css/main.e19d2da1.css.map",
+    "main.3812d6dd.js.map": "/static/js/main.3812d6dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e19d2da1.css",
+    "static/js/main.3812d6dd.js"
+  ]
+}
